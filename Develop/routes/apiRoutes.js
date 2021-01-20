@@ -1,3 +1,13 @@
+const router = require ('express').Router();
+const path = require ('path');
+//using uuid to create a unique id for entries on the post route so we can delete
+//we use v4 which creats a random id
+const { v4: uuidv4 } = require('uuid');
+
+
+
+
+
 // * GET `/api/notes` - Should read the `db.json` file and return all saved notes
 //  as JSON.
 
