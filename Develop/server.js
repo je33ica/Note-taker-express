@@ -1,11 +1,13 @@
 const express = require('express');
 const htmlRoute = require("./routes/htmlroutes")
+const apiRoutes = require("./routes/apiRoutes")
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
+
 //will find the html in the public folder
 app.use(express.static("public"));
 app.use("/", htmlRoute);
