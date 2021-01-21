@@ -1,25 +1,38 @@
 const router = require("express").Router();
 const path = require("path");
 const fs = require("fs");
+const db = require("../db/db.json");
 //using uuid to create a unique id for entries on the post route so we can delete
 //we use v4 which creats a random id
 const { v4: uuidv4 } = require("uuid");
-// Creating new unique id
 const userId = uuidv4();
-const dB = require("../db/db.json");
+
 
 
 
 
 // * GET `/api/notes` - Should read the `db.json` file and return all saved notes
 //  as JSON.
-router.get("/api/notes", (res, res) =>{
-    res.json(dB);
+router.get("/api/notes", (req, res) =>{
+
+    res.send(json(db));
 });
 
 // * POST `/api/notes` - Should receive a new note to save on the request body,
 //  add it to the `db.json` file, and then return the new note to the client.
-
+router.post("/api/notes", (req, res) => {
+    
+    let newNote = {
+        noteId: userId,
+        title: req.body.title,
+        text: req.body.text,
+    };
+    db.push(newNote)
+     // Return the new note to the client
+     fs.writeFile("./db/db.json", JSON.stringify(db), function () {
+        res.json(db);
+      });
+})
 
 
 // * DELETE `/api/notes/:id` - Should receive a query parameter containing
