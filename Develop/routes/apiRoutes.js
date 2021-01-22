@@ -36,41 +36,51 @@ router.post("/api/notes", (req, res) => {
 })
 
 
+// console.log(db);
 // // Retrieves a note with specific id
 // router.get("/api/notes/id", function(req,res) {
 //     // display json for the notes array indices of the provided id
 //     console.log(notes[req.params.id]);
 //     res.json(notes[req.params.id]);
 // });
+
 router.delete("/api/notes/:id", (req, res) => {
-    console.log("this is the selected id", req);
-  console.log("this is the selected id", req.params);  
+    fs.readFile("db/db.json","utf8", function(err,data){
+        console.log("this is the data",data);
+        const notes = JSON.parse(data)
+        console.log("these are the notes",notes);
+        console.log("these are the params",req.params.id);
+    }
+    )})
+
+
+    //     const notes = JSON.parse(data) || [];
+    //     const newNotes = notes.filter(note => note.id !== req.params.id)
+    //     writeFile("db/db.json", JSON.stringify(newNotes)).then(() => {
+    //       res.json(newNotes);
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // });
+
+// router.delete("/api/notes/:id", (req, res) => {
+//   //  console.log("this is the selected id", req);
+//   console.log("this is the selected id", req.params); 
+//   fs.readFile("./db/db.json","utf8",)
+//   .then((data) => {
+//     const notes = JSON.parse(data)
+//     console.log(notes);
+//   });
  
-            console.log("Deleted note with id "+req.params.id);
-
-})
-
-
-
-// // Deletes a note with specific id
-// router.delete("/api/notes/:id", function(req, res) {
-//     notes.splice(req.params., 1);
-//     updateDb();
-//     console.log("Deleted note with id "+req.params.id);
-// });
-
-// Deletes a note with specific id
-// router.delete("/api/notes/:noteId", function(req, res) {
-//     notes.splice(userId, 1);
-//     updatedb();
-//     console.log("Deleted note with id "+ userId);
-// });
-// router.delete("/api/notes:id", (req, res) => {
-//     fs.readFile("./db/db.json", JSON.stringify(db),
-//     )
-
-
 // })
+//   let noteToDelete = req.params.id;
+//   const remove = db.filter(item => item.id ! == noteToDelete)
+           
+
+
+
 // * DELETE `/api/notes/:id` - Should receive a query parameter containing
 // the id of a note to delete.
 // This means you'll need to find a way to give each note a unique `id` when it's saved.
