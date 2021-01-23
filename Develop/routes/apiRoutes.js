@@ -7,7 +7,7 @@ const db = require("../db/db.json");
 //using uuid to create a unique id for entries on the post route so we can delete
 //we use v4 which creats a random id
 const { v4: uuidv4 } = require("uuid");
-const userId = uuidv4();
+
 
 
 // * GET `/api/notes` - Should read the `db.json` file and return all saved notes
@@ -23,7 +23,7 @@ router.get("/api/notes", function (req, res) {
 //  add it to the `db.json` file, and then return the new note to the client.
 router.post("/api/notes", (req, res) => {
     let newNote = {
-        id: userId,
+        id: uuidv4(),
         title: req.body.title,
         text: req.body.text,
     };
@@ -36,7 +36,44 @@ router.post("/api/notes", (req, res) => {
 })
 
 
-// console.log(db);
+
+// router.delete("/api/notes/:id", (req, res) => {
+//         let filteredDB = db.filter(note => note.id !== req.params.id);
+        
+//     // fs.writeFile("db/db.json","utf8", (filteredDB) => {
+//         console.log("this is the data",filteredDB);
+//         let writeFileAsync = util.promisify(fs.writeFile);
+//        writeFileAsync("./db/db.json", JSON.stringify(filteredDB)).then(() => {
+//         res.status(200).send(filteredDB)
+//         });
+
+
+    
+// })
+
+router.delete("/api/notes/:id", (req, res) => {
+
+    let noteId = req.params.id;
+
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+        console.log('this is the intial data returned', data);
+      const allNotes = JSON.parse(data);
+      const newAllNotes = allNotes.filter(note => note.id !== noteId);
+
+      fs.writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), err => {
+        if (err) throw err;
+        res.send(db);
+        console.log("this is the new DB", db);
+        console.log("Note deleted!")
+      });
+    });
+  });
+
+
+
+
+    // console.log(db);
 // // Retrieves a note with specific id
 // router.get("/api/notes/id", function(req,res) {
 //     // display json for the notes array indices of the provided id
@@ -44,17 +81,22 @@ router.post("/api/notes", (req, res) => {
 //     res.json(notes[req.params.id]);
 // });
 
-router.delete("/api/notes/:id", (req, res) => {
-    fs.readFile("db/db.json","utf8", function(err,data){
-        console.log("this is the data",data);
-        const notes = JSON.parse(data)
-        console.log("these are the notes",notes);
-        console.log("these are the params",req.params.id);
-    }
-    )})
+// let writeFileAsync = util.promisify(fs.writeFile);
+// writeFileAsync("./db/db.json", JSON.stringify(filteredDB), () => {
+//      res.json({ok: true});
+//  });
+//         const notes = JSON.parse(data)
+//         console.log("these are the notes",notes);
+//         console.log("these are the params",req.params.id);
 
-
-    //     const notes = JSON.parse(data) || [];
+      
+// console.log("the new notes in delete", notes);
+//         fs.writeFile("./db/db.json", JSON.stringify(newNotes), () => {
+//             res.json(newNotes);
+// console.log("these are the new ",newNotes);
+//     }
+//     )
+ 
     //     const newNotes = notes.filter(note => note.id !== req.params.id)
     //     writeFile("db/db.json", JSON.stringify(newNotes)).then(() => {
     //       res.json(newNotes);
