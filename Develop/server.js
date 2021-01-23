@@ -1,5 +1,5 @@
 const express = require('express');
-const htmlRoute = require("./routes/htmlroutes")
+const htmlRoute = require("./routes/htmlRoutes")
 const apiRoutes = require("./routes/apiRoutes")
 const app = express();
 const PORT = process.env.PORT || 3000;

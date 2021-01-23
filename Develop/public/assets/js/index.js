@@ -74,6 +74,7 @@ const handleNoteDelete = function (event) {
   }
 
   deleteNote(note.id).then(() => {
+    console.log('i am the note being deleted', note.id);
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -133,6 +134,7 @@ const renderNoteList = (notes) => {
   });
 
   $noteList.append(noteListItems);
+  console.log('i am the notes on render', noteListItems);
 };
 
 // Gets notes from the db and renders them to the sidebar
