@@ -8,7 +8,14 @@ const db = require("../db/db.json");
 //we use v4 which creats a random id
 const { v4: uuidv4 } = require("uuid");
 
+//trying to get delete to work using the util library and make a promisify
+// const util = require("util");
+// const readFile = util.promisify(fs.readFile);
+// const writeFile = util.promisify(fs.writeFile);
 
+
+
+const util = require("util");
 
 // * GET `/api/notes` - Should read the `db.json` file and return all saved notes
 //  as JSON.
@@ -37,20 +44,6 @@ router.post("/api/notes", (req, res) => {
 
 
 
-// router.delete("/api/notes/:id", (req, res) => {
-//         let filteredDB = db.filter(note => note.id !== req.params.id);
-        
-//     // fs.writeFile("db/db.json","utf8", (filteredDB) => {
-//         console.log("this is the data",filteredDB);
-//         let writeFileAsync = util.promisify(fs.writeFile);
-//        writeFileAsync("./db/db.json", JSON.stringify(filteredDB)).then(() => {
-//         res.status(200).send(filteredDB)
-//         });
-
-
-    
-// })
-
 router.delete("/api/notes/:id", (req, res) => {
 
     let noteId = req.params.id;
@@ -71,7 +64,21 @@ router.delete("/api/notes/:id", (req, res) => {
   });
 
 
+  //these are the millon
 
+// router.delete("/api/notes/:id", (req, res) => {
+//         let filteredDB = db.filter(note => note.id !== req.params.id);
+        
+//     // fs.writeFile("db/db.json","utf8", (filteredDB) => {
+//         console.log("this is the data",filteredDB);
+//         let writeFileAsync = util.promisify(fs.writeFile);
+//        writeFileAsync("./db/db.json", JSON.stringify(filteredDB)).then(() => {
+//         res.status(200).send(filteredDB)
+//         });
+
+
+    
+// })
 
     // console.log(db);
 // // Retrieves a note with specific id
