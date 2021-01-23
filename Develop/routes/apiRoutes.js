@@ -23,7 +23,7 @@ router.get("/api/notes", function (req, res) {
     // Read the db.json file and return all saved notes as JSON
     
     res.json(db);
-    
+    console.log("i am the GET notes", db);
   });
 
 // * POST `/api/notes` - Should receive a new note to save on the request body,
