@@ -9,8 +9,9 @@ const util = require("util");
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
+
 router.get("/api/notes", (req, res) => {
-    readFile("db/db.json", "utf8", (err, data) => {
+    readFile("Develop/db/db.json", "utf8", (err, data) => {
         if (err) throw err;
         const notes = JSON.parse(data);
         res.json(notes);
@@ -18,7 +19,7 @@ router.get("/api/notes", (req, res) => {
 });
 
 router.post("/api/notes", (req, res) => {
-    readFile("./db/db.json", "utf8", (err, data) => {
+    readFile("Develop/db/db.json", "utf8", (err, data) => {
         if (err) throw err;
 
         const notes = JSON.parse(data);
@@ -28,7 +29,7 @@ router.post("/api/notes", (req, res) => {
             text: req.body.text,
         };
         notes.push(newNote);
-        writeFile("db/db.json", JSON.stringify(notes), (err) => {
+        writeFile("Develop/db/db.json", JSON.stringify(notes), (err) => {
             if (err) throw err;
         });
         res.send(notes);
@@ -37,11 +38,11 @@ router.post("/api/notes", (req, res) => {
 
 router.delete("/api/notes/:id", (req, res) => {
     let noteId = req.params.id;
-    readFile("./db/db.json", "utf8", (err, data) => {
+    readFile("Develop/db/db.json", "utf8", (err, data) => {
         if (err) throw err;
         const allNotes = JSON.parse(data);
         const newAllNotes = allNotes.filter((note) => note.id !== noteId);
-        writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), (err) => {
+        writeFile("Develop/db/db.json", JSON.stringify(newAllNotes, null, 2), (err) => {
             if (err) throw err;
         });
         res.send(newAllNotes);
