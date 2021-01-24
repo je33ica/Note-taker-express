@@ -1,47 +1,46 @@
 # Note taker express
-    # This README has been licensed using :
-    [![License Badge](https://img.shields.io/static/v1?label=License&message=Unlicense&color=blue)]
-    
-# Author: Jessica
-:notebook_with_decorative_cover::pencil2:
+  # This README has been licensed using 
+  [![License Badge](https://img.shields.io/static/v1?label=License&message=Unlicense&color=blue)]
+
+# Author: Jessica :notebook_with_decorative_cover::pencil2:
         
  ## Table of Contents
-    *[Description](#description)
+*[Description](#description)
 
-    * [Installation](#instalation)
-      
-    * [Usage](#usage)
+* [Installation](#instalation)
 
-    * [License](#license)  
+* [Usage](#usage)
 
-    * [Language](#language)
+* [License](#license)  
 
-    * [Questions](#questions)
-          
+* [Language](#language)
 
-    ## Description:
-    Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+* [Questions](#questions)
 
-    ## Installation:
-    npm install
 
-    ## Usage:
-    AS A user, I want to be able to write and save notes
+## Description:
+Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
 
-    ## The following license has been used:
-    Unlicense
+## Installation:
+npm install
 
-    ## Github:
-    je33ica 
-    [GitHub](https://github.com/je33ica)
+## Usage:
+AS A user, I want to be able to write and save notes
 
-    ## language used:
-    Javascript
+## The following license has been used:
+Unlicense
 
-    ## Questions:
-    Contact Jessica with any questions at 
+## Github:
+je33ica 
+[GitHub](https://github.com/je33ica)
 
-    # [![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)]
+## language used:
+Javascript
 
-   
-        
+## Questions:
+Contact Jessica with any questions at 
+
+# [![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)]
+
+
+
