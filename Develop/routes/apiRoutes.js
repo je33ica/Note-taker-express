@@ -41,7 +41,7 @@ router.delete("/api/notes/:id", (req, res) => {
         if (err) throw err;
         const allNotes = JSON.parse(data);
         const newAllNotes = allNotes.filter((note) => note.id !== noteId);
-        writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), (err) => {
+        writeFile("./db/db.json", JSON.stringify(newAllNotes), (err) => {
             if (err) throw err;
         });
         res.send(newAllNotes);
