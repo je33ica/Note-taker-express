@@ -2,21 +2,7 @@
   # This README has been licensed using 
   [![License Badge](https://img.shields.io/static/v1?label=License&message=Unlicense&color=blue)]
 
-# Author: Jessica :notebook_with_decorative_cover::pencil2:
-        
- ## Table of Contents
-*[Description](#description)
-
-* [Installation](#instalation)
-
-* [Usage](#usage)
-
-* [License](#license)  
-
-* [Language](#language)
-
-* [Questions](#questions)
-
+# Author: Jessica :notebook_with_decorative_cover::pencil2:    
 
 ## Description:
 Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
@@ -40,7 +26,7 @@ Javascript
 ## Questions:
 Contact Jessica with any questions at 
 
-# [![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)]
+## [![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)]
 
-
+## [Deployed application on Heroku ](https://immense-peak-09012.herokuapp.com/)
 
