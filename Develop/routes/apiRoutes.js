@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const fs = require("fs");
-const db = require("../db/db.json");
+// const db = require("../db/db.json");
 //using uuid to create a unique id for entries on the post route so we can delete
 //we use v4 which creats a random id
 const { v4: uuidv4 } = require("uuid");
@@ -41,7 +41,7 @@ router.delete("/api/notes/:id", (req, res) => {
         if (err) throw err;
         const allNotes = JSON.parse(data);
         const newAllNotes = allNotes.filter((note) => note.id !== noteId);
-        writeFile("./db/db.json", JSON.stringify(newAllNotes), (err) => {
+        writeFile("./db/db.json", JSON.stringify(newAllNotes, null, 2), (err) => {
             if (err) throw err;
         });
         res.send(newAllNotes);
